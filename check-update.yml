@@ -8,7 +8,7 @@
     - name: Check for updates
       shell: yum check-update
       register: update_check
-     changed_when: update_check.rc == 100
+      changed_when: update_check.rc == 100
       failed_when: update_check.rc == 1
 
     - debug:
