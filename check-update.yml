@@ -1,0 +1,20 @@
+---
+- name: Check for updates
+  hosts: cmn-tower-01.in.qservco.com 
+  gather_facts: false
+
+  tasks:
+
+    - name: Check for updates
+      shell:
+        cmd: yum check-update
+      args:
+        warn: false
+      register: update_check
+      changed_when: update_check.rc == 100
+      failed_when: update_check.rc == 1
+
+    - name: Ping if updates are available
+      ansible.builtin.ping:
+      when: update_check.rc == 100
+...
