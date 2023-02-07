@@ -10,10 +10,13 @@
       args:
         warn: false
       register: update_check
-      changed_when: update_check.rc == 100
-      failed_when: update_check.rc == 1
+#     changed_when: update_check.rc == 100
+#      failed_when: update_check.rc == 1
 
-    - name: Ping if updates are available
-      ansible.builtin.ping:
-      when: update_check.rc == 100
+     - debug:
+         msg: update_check
+
+#    - name: Ping if updates are available
+#      ansible.builtin.ping:
+#      when: update_check.rc == 100
 ...
