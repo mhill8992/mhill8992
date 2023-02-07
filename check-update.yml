@@ -6,8 +6,7 @@
   tasks:
 
     - name: Check for updates
-      shell:
-        cmd: yum check-update
+      shell: yum check-update
       args:
         warn: false
       register: update_check
