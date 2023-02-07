@@ -11,9 +11,6 @@
       changed_when: update_check.rc == 100
       failed_when: update_check.rc == 1
 
-    - debug:
-        msg: update_check
-
     - name: Ping if updates are available
       ansible.builtin.ping:
       when: update_check.rc == 100
